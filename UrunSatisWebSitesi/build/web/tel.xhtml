@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template = "/usertemplate/usertemplate.xhtml"> 
+    <ui:define name="icerik">
+        <h:form enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="inputName">Gorsel :</label>
+                <h:inputFile  value="#{telefonBean.dos}" styleClass="custom-file"/>
+                <label for="inputName">Stok Sayısı :</label> 
+                <h:inputText styleClass="form-control" value="#{telefonBean.tel.stok_sayisi}" /> <br />
+                <label for="inputName">Marka :</label> 
+                <h:inputText styleClass="form-control" value="#{telefonBean.tel.marka}" /> <br />
+                <label for="inputName">Model :</label> 
+                <h:inputText styleClass="form-control" value="#{telefonBean.tel.model}" /> <br />
+                <label for="inputName"> Fiyat :</label> 
+                <h:inputText styleClass="form-control" value="#{telefonBean.tel.fiyat}" /> <br />
+                <label for="inputName"> Garanti Süresi :</label> 
+                <h:inputText styleClass="form-control" value="#{telefonBean.tel.garantiSuresi}" /> <br />
+                <label for="inputName">Ekran Boyutu :</label> 
+                <h:inputText styleClass="form-control" value="#{telefonBean.tel.ekranBoyutu}" /> <br />
+                <label for="inputName">Kamera :</label> 
+                <h:inputText styleClass="form-control" value="#{telefonBean.tel.kamera}" /> <br />
+                <label for="inputName">Pil Omru :</label> 
+                <h:inputText styleClass="form-control" value="#{telefonBean.tel.pilOmru}" /> <br />
+                <label for="inputName"> Kapsite:</label> 
+                <h:inputText styleClass="form-control" value="#{telefonBean.tel.kapasite}" /> <br />
+                <label for="inputName">İşletim Sistemi :</label> 
+                <h:inputText styleClass="form-control" value="#{telefonBean.tel.isletimSistemi}" /> <br />
+            </div>
+            <div class="btn-group">
+                <h:commandButton rendered="#{telefonBean.tel.urun_id == 0}" styleClass="btn btn-primary" value="Ekle" action="#{telefonBean.kaydet()}" />
+                <h:commandButton rendered="#{telefonBean.tel.urun_id != 0}" styleClass="btn btn-secondary" value="Güncelle" action="#{telefonBean.kaydet()}" />
+
+            </div>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

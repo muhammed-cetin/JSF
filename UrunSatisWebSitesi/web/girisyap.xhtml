@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template = "/usertemplate/usertemplate.xhtml"> 
+    <ui:define name="icerik">
+        <div class="row" >
+            <div class="col-6">
+                Web Sitemize hoşgeldiniz!
+            </div>
+            <div class="col-6">
+                <h:outputLabel rendered="#{kullaniciBean.mesaj != null}"> 
+                    <div class="alert alert-warning mt-2" role="alert">
+                        #{kullaniciBean.mesaj}
+                    </div> 
+                </h:outputLabel>
+
+                <h:form>
+                    <div class="form-group mt-2">
+                        <label for="inputName">Email :</label> 
+                        <h:inputText styleClass="form-control" value="#{kullaniciBean.mail}" />
+                        <label for="inputName"> Parola :</label> 
+                        <h:inputSecret styleClass="form-control" value="#{kullaniciBean.parola}" /> 
+                    </div>
+                    <h:commandLink> Hesabınız var mı?</h:commandLink> <br/>
+
+                    <div class="btn-group mt-1">
+                        <h:commandButton styleClass="btn btn-primary" value="Giriş Yap" action="#{kullaniciBean.girisYap()}" />
+
+                    </div>
+
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

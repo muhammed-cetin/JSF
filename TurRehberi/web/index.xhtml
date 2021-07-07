@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template = "/usertemplate/usertemplate.xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="icerik">
+        <ui:repeat value="#{turBean.turList}" var="tur">
+            <div class="card mb-3 mt-2">
+                <h:graphicImage url="#{tur.gorsel}" />
+                <div class="card-body">
+                    <h5 class="card-title">#{tur.baslik}</h5>
+                    <p class="card-text">#{tur.aciklama}</p>
+                    <p class="card-text">Hizmetler: #{tur.hizmetler}</p>
+                    <p class="card-text">Rota: #{tur.rota}</p>
+                    <p class="card-text">Kontenjan: #{tur.kontejan}</p>
+                    <h:form>
+                        <h:commandLink rendered="#{kullaniciBean.girisKontrol}" styleClass="card-link" style="color: #00a8db;" value="Basvuru Yap" action="#{kullaniciBean.basvuruYap(tur.tur_id)}" ></h:commandLink>
+                    </h:form>
+                </div>
+            </div>
+        </ui:repeat>
+
+    </ui:define>
+</ui:composition>
+

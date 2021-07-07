@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template = "/admintemplate/admintemplate.xhtml"> 
+    <ui:define name="content">
+        <div class="mr-2 ml-2">
+            <a href="/UrunSatisWebSitesi/faces/pc.xhtml" class="btn btn-primary mt-2 mb-2">Yeni Bilgisayar Ekle</a>
+            <h:dataTable value="#{bilgisayarBean.pcList}" var="pc" styleClass="table table-hover table-striped" >
+                <h:column>
+                    <f:facet name="header">Urun-Id</f:facet>
+                        #{pc.urun_id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Gorsel</f:facet>
+                    <h:graphicImage height="50" url="#{pc.gorsel}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Stok Sayısı</f:facet>
+                        #{pc.stok_sayisi}
+                </h:column>                 
+                <h:column>
+                    <f:facet name="header">Marka</f:facet>
+                    <h:form>
+                        <h:commandLink styleClass="btn btn-secondary" value="#{pc.marka}" action="#{bilgisayarBean.pcPage(pc)}" ></h:commandLink>
+                    </h:form>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Model</f:facet>
+                        #{pc.model}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Fiyat</f:facet>
+                        #{pc.fiyat}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Garanti Suresi</f:facet>
+                        #{pc.garantiSuresi}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">İşlemci</f:facet>
+                        #{pc.islemci}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Ram</f:facet>
+                        #{pc.ram}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Ekran Kartı</f:facet>
+                        #{pc.ekranKarti}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Hard Disk</f:facet>
+                        #{pc.hardDisk}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Bilgisayar Tipi</f:facet>
+                        #{pc.pcTip}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#</f:facet>
+                    <h:form>
+                        <h:commandButton styleClass="btn btn-danger" value="Sil" action="#{bilgisayarBean.silme(pc.urun_id)}" />
+                    </h:form>
+
+                </h:column>
+            </h:dataTable>
+        </div>
+    </ui:define>
+</ui:composition>

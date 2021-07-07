@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template = "/template/template.xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:define name="icerik">
+        <h:dataTable value="#{kullaniciBean.kayitlar}" var="kay" styleClass="table table-hover table-striped" >
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                    [#{kay.id}]
+            </h:column>
+            <h:column>
+                <f:facet name="header">İÇERİK</f:facet>
+                    #{kay.icerik}
+            </h:column>
+            <h:column>
+                <f:facet name="header">TARİH</f:facet>
+                    [ #{kay.tarih} ]
+            </h:column>                 
+
+        </h:dataTable>
+    </ui:define>
+</ui:composition>
+

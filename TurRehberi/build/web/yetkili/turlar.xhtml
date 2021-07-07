@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template = "/template/template.xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:define name="icerik">
+        <h:dataTable value="#{turBean.turList}" var="tur" styleClass="table table-hover table-striped" >
+            <h:column>
+                <f:facet name="header">Tur-Id</f:facet>
+                    #{tur.tur_id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Gorsel</f:facet>
+                <h:graphicImage height="50" url="#{tur.gorsel}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Başlık</f:facet>
+                    #{tur.baslik}
+            </h:column>                 
+            <h:column>
+                <f:facet name="header">Açıklama</f:facet>
+                <h:form>
+                    <h:commandLink styleClass="btn btn-link" value="#{tur.aciklama}" action="#{turBean.turSayfasi(tur)}" ></h:commandLink>
+                </h:form>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Ücret</f:facet>
+                    #{tur.ucret}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Kontenjan</f:facet>
+                    #{tur.kontejan}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Rota</f:facet>
+                    #{tur.rota}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Hizmetler</f:facet>
+                    #{tur.hizmetler}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">#</f:facet>
+                <h:form>
+                    <h:commandButton styleClass="btn btn-danger" value="Sil" action="#{turBean.silme(tur.tur_id)}" />
+                </h:form>
+
+            </h:column>
+        </h:dataTable>
+    </ui:define>
+</ui:composition>
+

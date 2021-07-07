@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template = "/usertemplate/usertemplate.xhtml"> 
+    <ui:define name="icerik">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/indirim1.jpeg" class="d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item">
+                    <img src="images/indirim2.jpeg" class="d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item">
+                    <img src="images/indirim3.jpeg" class="d-block w-100" alt="..."/>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div class="card-deck">
+            <ui:repeat value="#{bilgisayarBean.pcList}" var="pc">
+                <div class="card mr-1 ml-1 mt-1" style="width: 18rem;">
+                    <h:graphicImage styleClass="card-img-top"  height="450" width="300" url="#{pc.gorsel}" />
+                    <div class="card-body">
+                        <h5 class="card-title">#{pc.marka} - #{pc.model}</h5>
+                        <p class="card-text">#{pc.islemci} #{pc.ekranKarti} #{pc.hardDisk} #{pc.pcTip}</p>
+                        <a class="btn btn-primary" style="color: white;">#{pc.fiyat} ₺</a>
+                    </div>
+                </div>
+            </ui:repeat>
+        </div>
+        <div  class="card-deck">
+            <ui:repeat value="#{telefonBean.telList}" var="tel">
+                <div class="card mr-1 ml-1 mt-1" style="width: 18rem;">
+                    <h:graphicImage styleClass="card-img-top"  height="450" width="300" url="#{tel.gorsel}" />
+                    <div class="card-body">
+                        <h5 class="card-title">#{tel.marka} - #{tel.model}</h5>
+                        <p class="card-text">#{tel.kapasite} #{tel.kamera} #{tel.pilOmru} #{tel.isletimSistemi}</p>
+                        <a class="btn btn-primary" style="color: white;">#{tel.fiyat} ₺</a>
+                    </div>
+                </div>
+            </ui:repeat>
+        </div>
+        <div  class="card-deck">
+            <ui:repeat value="#{televizyonBean.tvList}" var="tv">
+                <div class="card mr-1 ml-1 mt-1" style="width: 18rem;">
+                    <h:graphicImage styleClass="card-img-top"  height="450" width="300" url="#{tv.gorsel}" />
+                    <div class="card-body">
+                        <h5 class="card-title">#{tv.marka} - #{tv.model}</h5>
+                        <p class="card-text">#{tv.ekranBoyutu} #{tv.baglantiTuru} #{tv.cozunurlukTuru} #{tv.garantiSuresi}</p>
+                        <a class="btn btn-primary" style="color: white;">#{tv.fiyat} ₺</a>
+                    </div>
+                </div>
+            </ui:repeat>
+        </div>
+
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+        <script>
+            $('#myCarousel').carousel();
+        </script>
+    </ui:define>
+</ui:composition>

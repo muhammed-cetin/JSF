@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template = "/usertemplate/usertemplate.xhtml"> 
+    <ui:define name="icerik">
+        <h:form enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="inputName">Gorsel :</label>
+                <h:inputFile  value="#{televizyonBean.dos}" styleClass="custom-file"/>
+                <label for="inputName">Stok Sayısı :</label> 
+                <h:inputText styleClass="form-control" value="#{televizyonBean.tv.stok_sayisi}" /> <br />
+                <label for="inputName">Marka :</label> 
+                <h:inputText styleClass="form-control" value="#{televizyonBean.tv.marka}" /> <br />
+                <label for="inputName">Model :</label> 
+                <h:inputText styleClass="form-control" value="#{televizyonBean.tv.model}" /> <br />
+                <label for="inputName"> Fiyat :</label> 
+                <h:inputText styleClass="form-control" value="#{televizyonBean.tv.fiyat}" /> <br />
+                <label for="inputName"> Garanti Süresi :</label> 
+                <h:inputText styleClass="form-control" value="#{televizyonBean.tv.garantiSuresi}" /> <br />
+                <label for="inputName">Ekran Boyutu :</label> 
+                <h:inputText styleClass="form-control" value="#{televizyonBean.tv.ekranBoyutu}" /> <br />
+                <label for="inputName">Ekran Çözünürlüğü :</label> 
+                <h:inputText styleClass="form-control" value="#{televizyonBean.tv.cozunurlukTuru}" /> <br />
+                <label for="inputName">Bağlantı Türü :</label> 
+                <h:inputText styleClass="form-control" value="#{televizyonBean.tv.baglantiTuru}" /> <br />
+
+            </div>
+            <div class="btn-group">
+                <h:commandButton rendered="#{televizyonBean.tv.urun_id == 0}" styleClass="btn btn-primary" value="Ekle" action="#{televizyonBean.kaydet()}" />
+                <h:commandButton rendered="#{televizyonBean.tv.urun_id != 0}" styleClass="btn btn-secondary" value="Güncelle" action="#{televizyonBean.kaydet()}" />
+
+            </div>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template = "/template/template.xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:define name="icerik">
+        <h:form enctype="multipart/form-data">
+            <div class="form-group">
+
+                <label for="inputName">Gorsel :</label>
+                <h:inputFile  value="#{turBean.dos}" styleClass="custom-file"/>
+                <label for="inputName">Başlık :</label> 
+                <h:inputText styleClass="form-control" value="#{turBean.tur.baslik}" /> <br />
+                <label for="inputName">Açıklama :</label> 
+                <h:inputText styleClass="form-control" value="#{turBean.tur.aciklama}" /> <br />
+                <label for="inputName">Ucret :</label> 
+                <h:inputText styleClass="form-control" value="#{turBean.tur.ucret}" /> <br />
+                <label for="inputName">Kontejan :</label> 
+                <h:inputText styleClass="form-control" value="#{turBean.tur.kontejan}" /> <br />
+                <label for="inputName">Rota :</label> 
+                <h:inputText styleClass="form-control" value="#{turBean.tur.rota}" /> <br />
+                <label for="inputName">Hizmetler :</label>
+                <h:inputTextarea styleClass="form-control" value="#{turBean.tur.hizmetler}" >
+                </h:inputTextarea> <br/>
+
+            </div>
+            <div class="btn-group">
+                <h:commandButton rendered="#{turBean.tur.tur_id == 0}" styleClass="btn btn-primary" value="Ekle" action="#{turBean.kaydet()}" />
+                <h:commandButton rendered="#{turBean.tur.tur_id != 0}" styleClass="btn btn-secondary" value="Güncelle" action="#{turBean.kaydet()}" />
+
+            </div>
+
+        </h:form>
+    </ui:define>
+</ui:composition>
+
